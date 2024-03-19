@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'HomeLayout.html' %}
+
+{% block title %}Display All Records{% endblock %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display All Records</title>
+    <style>
+      table, th, td {
+      border:1px solid green;
+       }
+     </style>
+    <!-- Include your CSS stylesheets or styling frameworks here -->
+</head>
+<body>
+
+<div>
+    <h2>All Reports</h2>
+
+    {% if records %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Date</th>
+                    <th>Details</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                    <th>Images</th>
+
+                    <!-- Add other headers for your columns -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in records %}
+                    <tr>
+                        <td>{{ record.email }}</td>
+                        <td>{{ record.Name }}</td>
+                        <td>{{ record.Surname }}</td>
+                        <td>{{ record.date_field }}</td>
+                        <td>{{ record.info }}</td>
+                        <td>{{ record.Location }}</td>
+                        <td>{{ record.status }}</td>
+                        <td>
+    <img src="{{ record.image_data }}" alt="Image" style="max-width: 200px; max-height: 200px;">
+</td>
+
+
+
+
+
+
+
+
+
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No records found.</p>
+    {% endif %}
+</div>
+        <div>
+            <p><a href="ClientHome">Back</a></p>
+        </div>
+
+</body>
+</html>
+{% endblock %}

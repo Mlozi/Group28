@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+      .ok{
+
+           font-size: 20px;
+      }
+      .op{
+        font-size: 20px;
+        margin-left: -70px;
+        font-weight: bold;
+        background-color: white;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+
+    </style>
+</head>
+
+
+    <body>
+	{% extends 'HomeLayout.html' %}
+
+	{% block title %}Title{% endblock %}
+
+    {% block content %}
+    <div class="center">
+        <div class="row">
+
+        <div class="span6">
+   <a href="https://www.dut.ac.za/wp-content/uploads/2014/10/A4-MLST-site-map-for-WEB-20-09-181.pdf"><img fetchpriority="high" decoding="async" class="alignnone size-full wp-image-88637" src="https://www.dut.ac.za/wp-content/uploads/2014/10/MLST-site-map-20-09-18.jpg" alt="MLST site map 20-09-18" width="416" height="500" data-id="88637"></a><br>
+<br>
+</div>
+
+        </div>
+        <h1> Please fill in details for your report:  </h1>
+        <form method="POST" action="/reportfault" enctype="multipart/form-data">
+
+
+
+
+           <div class="form-group">
+                    <label class = "col-md-2 control-label">Location</label>
+                    <div class="col-md-10">
+                        <input class = "form-control" type="text" name="location" required /><br><br>
+                    </div>
+           </div>
+            <div class="form-group">
+                    <label class = "col-md-2 control-label">Report Detail</label>
+                    <div class="col-md-10">
+                        <input class = "form-control" type="text" name="info" required /><br><br>
+                    </div>
+           </div>
+
+            <input class="ok" type="file" name="file">
+			<br>
+        <br>
+
+			<div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                   <button class="op">Submit</button>
+                </div>
+            </div>
+
+        </form>
+		        <div>
+            <p><a href="ClientHome">Back</a></p>
+        </div>
+
+    </div>
+
+</body>
+
+{% endblock %}
+</html>
+
+
+

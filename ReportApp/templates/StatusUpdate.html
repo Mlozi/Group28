@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .ok {
+            font-size: 20px;
+        }
+        .op {
+            font-size: 20px;
+            margin-left: -70px;
+            font-weight: bold;
+            background-color: green;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    {% extends 'Layout.html' %}
+
+    {% block title %}Title{% endblock %}
+
+    {% block content %}
+    <div class="center">
+        <h1> Please update progress on the report: </h1>
+        <form method="POST" action="/StatusUpdate/{{ user.id }}" enctype="multipart/form-data">
+            <h2>User Details</h2>
+
+            <p>Email: {{ user.email }}</p>
+            <p>Name: {{ user.Name }}</p>
+            <p>Surname: {{ user.Surname }}</p>
+            <p>Details: {{ user.info }}</p>
+            <p>Location: {{ user.Location }}</p>
+            <p>Current status: {{ user.status }}</p>
+            <p>Date: {{ user.date_field }}</p>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">Update Progress </label>
+                <div class="col-md-10">
+                    <input class="form-control" type="text" name="status" required /><br><br>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <input class="btn btn-primary" type="submit" value="Submit"><br><br>
+        </form>
+
+
+    </div>
+    {% endblock %}
+</body>
+</html>
